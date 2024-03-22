@@ -1,0 +1,98 @@
+<html>
+<head>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .box {
+            font-size: 28px;
+            color: white;
+            height: auto;
+            width: 450px;
+            border-radius: 10px;
+            background: #191919;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .buttons-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        button {
+            height: auto;
+            min-width: 200px;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: 600;
+            color: black;
+            white-space: normal;
+            overflow: hidden;
+        }
+
+        button, #no {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>Namora comigo?🥺</p>
+        <div class="buttons-container">
+            <button id="yes">
+                <a href="https://png.pngtree.com/png-clipart/20190903/original/pngtree-hands-than-heart-png-free-material-png-image_4425313.jpg">Sim</a>
+            </button>
+            <button id="no">Não</button>
+        </div>
+    </div>
+
+    <script>
+        let yesButton = document.getElementById('yes');
+        let noButton = document.getElementById('no');
+        let height = window.innerHeight - 50;
+        let width = window.innerWidth - 50;
+        let counter = 0;
+        const maxPresses = 3;
+
+        noButton.addEventListener('click', function () {
+            let randomX = Math.random() * width;
+            let randomY = Math.random() * height;
+            let messages = ["Tem certeza que não?", "Melhor não continuar...", "Você está certo disso?"];
+
+            if (counter < messages.length) {
+                noButton.innerText = messages[counter];
+                counter++;
+            } else {
+                window.location.href = "https://www.youtube.com/watch?v=TBTj4vdtqbg";
+            }
+
+            noButton.style.position = "absolute";
+            noButton.style.top = randomY + "px";
+            noButton.style.left = randomX + "px";
+        });
+
+        yesButton.addEventListener('click', function () {
+            window.location.href = "https://png.pngtree.com/png-clipart/20190903/original/pngtree-hands-than-heart-png-free-material-png-image_4425313.jpg";
+        });
+    </script>
+</body>
+</html>
